@@ -8,10 +8,10 @@ services:
     volumes: 
         - ./next:/next
     ports:
-      - "3000:3000"
+      - "80:3000"
   db5th_go:
     build: ./go
-    tty: ture
+    tty: true
     container_name: db5th_go
     volumes:
       - ./go:/go
