@@ -1,3 +1,3 @@
 FROM node:latest
 
-WORKDIR /workdir/next
+WORKDIR /next/app
