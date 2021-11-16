@@ -1,0 +1,10 @@
+/* styles.css */
+body {
+    background: #FFFFFF;
+}
+
+.header {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+    height: 50px;
+}

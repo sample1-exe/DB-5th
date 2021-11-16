@@ -1,0 +1,458 @@
+/* AIスマート工学コース-TOP */
+
+position: relative;
+width: 1440px;
+height: 2028px;
+
+background: #FFFFFF;
+
+/* Footer */
+
+position: absolute;
+width: 1440px;
+height: 336px;
+left: 0px;
+top: 1692px;
+
+
+/* base */
+/*
+position: absolute;
+width: 1440px;
+height: 210px;
+left: 0px;
+top: 126px;
+
+background: #009CAE;
+*/
+
+/* menu */
+/*
+position: absolute;
+width: 940px;
+height: 20px;
+left: 250px;
+top: 223px;
+*/
+
+
+/* コース案内 */
+/*
+position: absolute;
+width: 100px;
+height: 20px;
+left: 250px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+*/
+/* identical to box height, or 100% */
+/*
+color: #FFFFFF;
+*/
+
+
+/* 授業 */
+/*
+position: absolute;
+width: 40px;
+height: 20px;
+left: 650px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+*/
+/* identical to box height, or 100% */
+/*
+color: #FFFFFF;
+*/
+
+
+/* 教員 */
+/*
+position: absolute;
+width: 40px;
+height: 20px;
+left: 790px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+*/
+/* identical to box height, or 100% */
+/*
+color: #FFFFFF;
+*/
+
+
+/* コース活動 */
+
+position: absolute;
+width: 100px;
+height: 20px;
+left: 450px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+color: #FFFFFF;
+
+
+
+/* キャリア */
+
+position: absolute;
+width: 80px;
+height: 20px;
+left: 930px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+color: #FFFFFF;
+
+
+
+/* 連携協定 */
+
+position: absolute;
+width: 80px;
+height: 20px;
+left: 1110px;
+top: 223px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+color: #FFFFFF;
+
+
+
+/* ニュース */
+
+position: absolute;
+width: 999px;
+height: 443px;
+left: 210px;
+top: 1080px;
+
+
+
+/* 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ 2021.11.3　＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠＠ */
+
+position: absolute;
+width: 999px;
+height: 302px;
+left: 210px;
+top: 1135px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 35px;
+/* or 194% */
+
+color: #000000;
+
+
+
+/* Rectangle 1 */
+
+position: absolute;
+width: 251px;
+height: 41px;
+left: 589px;
+top: 1461px;
+
+background: #009CAE;
+
+
+/* 過去のニュースはこちらから */
+
+position: absolute;
+width: 366px;
+height: 62px;
+left: calc(50% - 366px/2 - 5px);
+top: calc(50% - 62px/2 + 478px);
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 35px;
+/* or 194% */
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* ニュース */
+
+position: absolute;
+width: 94px;
+height: 32px;
+left: 662px;
+top: 1080px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* or 111% */
+text-align: center;
+
+color: #000000;
+
+
+
+/* Line 1 */
+
+position: absolute;
+width: 997px;
+height: 0px;
+left: 210px;
+top: 1122px;
+
+border: 1px solid #000000;
+transform: rotate(-0.17deg);
+
+
+/* Line 2 */
+
+position: absolute;
+width: 999px;
+height: 0px;
+left: 210px;
+top: 1437px;
+
+border: 1px solid #000000;
+
+
+/* イベント紹介 */
+
+position: absolute;
+width: 1265px;
+height: 701px;
+left: 87px;
+top: 203px;
+
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 1265px;
+height: 645px;
+left: 87px;
+top: 203px;
+
+background: #9B9999;
+border: 5px solid #000000;
+box-sizing: border-box;
+
+
+/* ページネーション */
+
+position: absolute;
+width: 92px;
+height: 20px;
+left: 670px;
+top: 884px;
+
+background: #C4C4C4;
+
+
+/* Header */
+
+position: absolute;
+width: 1421px;
+height: 149px;
+left: 0px;
+top: 8px;
+
+
+
+/* コース案内 */
+
+position: absolute;
+left: 3.8%;
+right: 88.41%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* 授業 */
+
+position: absolute;
+left: 29.98%;
+right: 66.88%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* 教員 */
+
+position: absolute;
+left: 39.14%;
+right: 57.72%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* コース活動 */
+
+position: absolute;
+left: 16.89%;
+right: 75.32%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* キャリア */
+
+position: absolute;
+left: 48.3%;
+right: 45.42%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* 連携協定 */
+
+position: absolute;
+left: 60.08%;
+right: 33.64%;
+top: 75.84%;
+bottom: 10.74%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+color: #009CAE;
+
+
+
+/* Line 2 */
+
+position: absolute;
+left: 3.8%;
+right: 33.64%;
+top: 100%;
+bottom: 0%;
+
+border: 1px solid #000000;
+
+
+/* AIスマート工学コース */
+
+position: absolute;
+left: 0%;
+right: 71.22%;
+top: 14.09%;
+bottom: 59.06%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 35px;
+line-height: 20px;
+/* or 57% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #009CAE;
+
+
+
+/* スクリーンショット 2021-11-04 9.18 1 */
+
+position: absolute;
+left: 74.31%;
+right: 0%;
+top: 0%;
+bottom: 44.3%;
+
+background: url(.png);
