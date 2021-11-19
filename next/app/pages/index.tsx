@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
         <Link href="/link">
-          <h1 className="text-red-600">移動するよぉ</h1>
+          <h1 className="fontColor">移動するよぉ</h1>
         </Link>
     </div>
   )

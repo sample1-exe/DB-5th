@@ -1,3 +1,4 @@
+font-color -> 009CAE
 /* AIスマート工学コース-TOP */
 
 position: relative;
