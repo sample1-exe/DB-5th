@@ -7,7 +7,7 @@ export default function Header(props) {
     <Head>
         <title>{props.title}</title>
     </Head>
-    <div className="header grid xl:grid-cols-2 lg:grid-cols-2 items-center">
+    <header className="header grid xl:grid-cols-2 lg:grid-cols-2 items-center">
         <div className="text-5xl justify-left fontColor hidden lg:inline-block">
             AIスマート工学コース
         </div>
@@ -20,7 +20,7 @@ export default function Header(props) {
             className=""
         />
         </div>
-    </div>
+    </header>
     </>
     )
 }
