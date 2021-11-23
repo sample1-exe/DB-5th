@@ -7,29 +7,20 @@ export default function Header(props) {
     <Head>
         <title>{props.title}</title>
     </Head>
-    <div className="header">
-        <div className="text-4xl justify-left fontColor m-1">
+    <header className="header grid xl:grid-cols-2 lg:grid-cols-2 items-center">
+        <div className="text-5xl justify-left fontColor hidden lg:inline-block">
             AIスマート工学コース
         </div>
+        <div
+        className="xl:col-end-3 lg:con-end-3 flex lg:justify-end md:justify-center">
         <Image 
             src="/sangikousen.png"
             width="360"
             height="80"
             className=""
         />
-    </div>
-   {/*div className="header grid-cols-12">
-        <div className="fontColor">
-          <div className="text-5xl">AIスマート工学コース</div>
-          
-          {<Image 
-            className="right-0"
-            src="/sangikousen.png"
-            width={200}
-            height={100}
-          />}
-        </div> 
-      </div>*/}
+        </div>
+    </header>
     </>
     )
 }
