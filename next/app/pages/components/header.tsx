@@ -14,7 +14,7 @@ export default function Header(props) {
         <div
         className="xl:col-end-3 lg:con-end-3 flex lg:justify-end md:justify-center">
         <Image 
-            src="/sangikousen.png"
+            src="/sangikousen-removebg.png"
             width="360"
             height="80"
             className=""
