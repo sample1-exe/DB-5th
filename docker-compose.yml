@@ -14,7 +14,18 @@ services:
     tty: true
     container_name: db5th_go
     volumes:
-      - ./go:/go
+      - ./go/src:/go/source
     ports:
       - "8080:8080"
+  db5th_db:
+    build: ./db
+    tty: true
+    ports: 
+      - "3306:3306"
+    container_name: db5th_db
+    environment: 
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_DATABASE: db5th
+      MYSQL_USER: user
+      MYSQL_PASSWORD: P@ssw0rd
 
