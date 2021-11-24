@@ -14,7 +14,7 @@ func main() {
 
 	e.GET("/select/teacher", Get_teacher)
 	e.GET("/select/subject", Get_subject)
-	e.GET("/select/subject", Get_link)
+	e.GET("/select/link", Get_link)
 	e.GET("/select/news", Get_news)
 	e.GET("/select/company", Get_company)
 	e.GET("/select/continue_company", Get_Continue_company)
