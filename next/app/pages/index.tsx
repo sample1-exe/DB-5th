@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
-import Header from './components/header'
-import Footer from './components/footer'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 export default function Home() {
   const title: string = "TOPページ | AIスマート工学コース";
