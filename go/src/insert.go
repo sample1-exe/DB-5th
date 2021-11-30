@@ -86,7 +86,7 @@ func Post_Continue_company(c echo.Context) error {
 
 func Post_Continue_school(c echo.Context) error {
 	db := Connection()
-	school_name := c.FormValue("company_name")
+	school_name := c.FormValue("school_name")
 	continue_school := Continue_school{
 		School_name: school_name,
 	}
