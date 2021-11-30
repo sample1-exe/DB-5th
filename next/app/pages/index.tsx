@@ -10,14 +10,14 @@ export default function Home() {
   const title: string = "TOPページ | AIスマート工学コース";
   return ( 
     <>
-      <Header 
-        title={title}
-      />
     
-      <Event />
-      <News />
+      <div className="wrapper">
+        <Header title={title}/>
+        <Event />
+        <News />
+        <Footer />
+      </div>
 
-      <Footer />
     </>
   )
 }

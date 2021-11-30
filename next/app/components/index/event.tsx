@@ -6,7 +6,7 @@ export default function Event() {
     <>
         <div className="grid grid-cols-1 py-8">
             <Image 
-                src="/event_mock.jpg"
+                src="/mock.jpg"
                 width="500"
                 height="300"
                 objectFit="contain"

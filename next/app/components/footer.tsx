@@ -5,22 +5,22 @@ export default function Footer() {
     return (
         <>
         <footer className="justify-center items-center footer flex space-x-8">
-            <Link href="/">
+            <Link href="/guidance">
                 コース案内
             </Link>
-            <Link href="/">
+            <Link href="/activity">
                 コース活動
             </Link>
-            <Link href="/">
+            <Link href="/subject">
                 授業
             </Link>
-            <Link href="/">
+            <Link href="/teacher">
                 教員
             </Link>
-            <Link href="/">
+            <Link href="/career">
                 キャリア
             </Link>
-            <Link href="/">
+            <Link href="/alignment">
                 連携協定
             </Link>
         </footer>
