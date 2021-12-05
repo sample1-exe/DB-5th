@@ -1,8 +1,15 @@
+import Link from 'next/link'
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Link from 'next/link'
 
-export default function Activity() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const subjectJson = await fetch("http://db5th_go:8080/select/subject")
+      .then(res => res.json())
+  return { props: { subjectJson } }
+}
+
+export default function Activity(subjectJson) {
   const title: string = "授業 | AIスマート工学コース";
   return ( 
     <>
@@ -16,7 +23,7 @@ export default function Activity() {
             授業
           </div>
 
-          <SubjectTable />
+          <SubjectTable subjectJson={subjectJson.subjectJson} />
         </div>
       
         <Footer />
@@ -31,39 +38,53 @@ interface SubjectData {
   syllabusURL: string,
 }
 
-const SubjectTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          SubjectData[]
-      }
-  */
-
-  // モック
+const SubjectTable = (subjectJson) => {
   const subjectDatas: Array<SubjectData> = [];
-  for (let i = 0; i < 10; i++) {
-      const data: SubjectData = {
-        subjectName: "帝王学" + i.toString(10),
-        teacher: "天上人",
-        syllabusURL: "/subjec/syllabus/" + i.toString(10),
-      };
-
-      subjectDatas.push(data);
+  for (const subjectData of subjectJson.subjectJson) {
+    const data: SubjectData = {
+      subjectName: subjectData.Subject_name,
+      teacher: "未定",
+      syllabusURL: ""
+    }
+    subjectDatas.push(data);
   }
 
   return (<>
       <table className="table-auto">
           <tbody>
+              <tr>
+                <th className="border border-black">科目名</th>
+                <th className="border border-black">教員</th>
+                <th className="border border-black"></th>
+              </tr>
               {subjectDatas.map((data) => 
                   <tr key={data.subjectName} className="text-3xl">
                     <td className="border border-black">{data.subjectName}</td>
                     <td className="border border-black">{data.teacher}</td>
-                    <td className="border border-black fontColor">
-                      <Link href={data.syllabusURL}>シラバス</Link>
+                      <td className="border border-black">
+                      {/* <Link href={data.syllabusURL}>シラバス</Link> */}
+                      {SyllabusURL(data.syllabusURL)}
                     </td>
                   </tr>
               )}
           </tbody>
       </table>
   </>);
+}
+
+function SyllabusURL(url) {
+  if (url === "") {
+    return (
+      <div>
+        シラバス
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className="fontColor">
+        <Link href={url}>シラバス</Link>
+      </div>
+    )
+  }
 }
