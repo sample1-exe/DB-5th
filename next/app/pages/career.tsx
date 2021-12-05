@@ -1,7 +1,17 @@
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-export default function Activity() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const schoolJson = await fetch("http://db5th_go:8080/select/continue_school")
+      .then(res => res.json())
+  const companyJson = await fetch("http://db5th_go:8080/select/continue_company")
+      .then(res => res.json())
+  
+  return { props: { schoolJson, companyJson } }
+}
+
+export default function Activity(jsonData) {
   const title: string = "キャリア | AIスマート工学コース";
   return ( 
     <>
@@ -19,14 +29,14 @@ export default function Activity() {
             <div className="border-b-2 border-black text-3xl pb-4">
               進学
             </div>
-            <CollegeTable />
+            <CollegeTable schoolJson={jsonData.schoolJson} />
           </div>
 
           <div className="p-8">
             <div className="border-b-2 border-black text-3xl pb-4">
               就職
             </div>
-            <CorporateTable />
+            <CorporateTable companyJson={jsonData.companyJson} />
           </div>
         </div>
       
@@ -40,19 +50,12 @@ interface CollegeData {
   college: string
 }
 
-const CollegeTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
+const CollegeTable = (schoolJson) => {
 
-  // モック
   const collegeDatas: Array<CollegeData> = [];
-  for (let i = 0; i < 10; i++) {
+  for (const school of schoolJson.schoolJson) {
       const data: CollegeData = {
-        college: "第" + i.toString(10) + "宇宙大学"
+        college: school.School_name
       };
 
       collegeDatas.push(data);
@@ -75,19 +78,12 @@ interface CorporateData {
   corporate: string
 }
 
-const CorporateTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
-
+const CorporateTable = (companyJson) => {
   // モック
-  const corporateDatas: Array<CollegeData> = [];
-  for (let i = 0; i < 10; i++) {
-      const data: CollegeData = {
-        college: "第" + i.toString(10) + "宇宙会社"
+  const corporateDatas: Array<CorporateData> = [];
+  for (const corporate of companyJson.companyJson) {
+      const data: CorporateData = {
+        corporate: corporate.Company_name
       };
 
       corporateDatas.push(data);
@@ -97,8 +93,8 @@ const CorporateTable = () => {
       <table className="table-auto">
           <tbody>
               {corporateDatas.map((data) => 
-                  <tr key={data.college}>
-                      <td>{data.college}</td>
+                  <tr key={data.corporate}>
+                      <td>{data.corporate}</td>
                   </tr>
               )}
           </tbody>
