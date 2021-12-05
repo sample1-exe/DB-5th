@@ -3,20 +3,21 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Event from '../components/index/event'
+import News from '../components/index/news'
 
 export default function Home() {
   const title: string = "TOPページ | AIスマート工学コース";
   return ( 
     <>
-      <Header 
-        title={title}
-      />
-      <Link href="/link">
-        <h1 className="fontColor">移動するよぉ</h1>
-      </Link>
     
+      <div className="wrapper">
+        <Header title={title}/>
+        <Event />
+        <News />
+        <Footer />
+      </div>
 
-      <Footer />
     </>
   )
 }
