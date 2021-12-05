@@ -2,10 +2,15 @@ package main
 
 import (
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 func main() {
 	e := echo.New()
+
+	// CORSの設定
+	e.Use(middleware.CORS())
+
 	e.POST("/insert/teacher", POST_teacher)
 	e.POST("/insert/subject", POST_subject)
 	e.POST("/insert/link", Post_link)
