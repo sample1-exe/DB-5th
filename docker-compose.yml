@@ -22,8 +22,6 @@ services:
     tty: true
     ports: 
       - "3306:3306"
-    volumes:
-      - ./db/data:/var/lib/mysql
     container_name: db5th_db
     environment: 
       MYSQL_ROOT_PASSWORD: P@ssw0rd
