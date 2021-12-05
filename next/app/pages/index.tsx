@@ -1,12 +1,16 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import Head from 'next/head'
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Event from '../components/index/event'
 import News from '../components/index/news'
 
-export default function Home() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const newsJson = await fetch("http://db5th_go:8080/select/news")
+      .then(res => res.json())
+  return { props: { newsJson } }
+}
+
+export default function Home( newsJson ) {
   const title: string = "TOPページ | AIスマート工学コース";
   return ( 
     <>
@@ -14,7 +18,7 @@ export default function Home() {
       <div className="wrapper">
         <Header title={title}/>
         <Event />
-        <News />
+        <News newsJson={newsJson.newsJson}/>
         <Footer />
       </div>
 
