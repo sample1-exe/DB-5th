@@ -11,9 +11,9 @@ curl -F"school_name=CCC大学" localhost:8080/insert/continue_school
 curl -F"school_name=DDD大学" localhost:8080/insert/continue_school
 curl -F"school_name=EEE大学" localhost:8080/insert/continue_school
 
-curl -F "company_name=株式会社AAAA" -F "company_date=2021-7-20 7:10:11" localhost:8080/insert/company
-curl -F "company_name=株式会社BBBB" -F "company_date=2021-8-22 7:10:12" localhost:8080/insert/company
-curl -F "company_name=株式会社CCCC" -F "company_date=2021-9-24 7:10:13" localhost:8080/insert/company
+curl -F "company_name=株式会社AAAA" -F "company_date=2021-07-20 7:10:11" localhost:8080/insert/company
+curl -F "company_name=株式会社BBBB" -F "company_date=2021-08-22 7:10:12" localhost:8080/insert/company
+curl -F "company_name=株式会社CCCC" -F "company_date=2021-09-24 7:10:13" localhost:8080/insert/company
 curl -F "company_name=株式会社DDDD" -F "company_date=2021-10-26 7:10:14" localhost:8080/insert/company
 curl -F "company_name=株式会社EEEE" -F "company_date=2021-11-28 7:10:16" localhost:8080/insert/company
 curl -F "company_name=国立大学法人 ABC大学" -F "company_date=2021-11-28 7:10:16" localhost:8080/insert/company
