@@ -1,24 +1,18 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Event() {
     return (
     <>
         <div className="grid grid-cols-1 py-8">
-            <Image 
-                src="/mock.jpg"
-                width="500"
-                height="300"
-                objectFit="contain"
-            />
+            <Link href="/">
+                <img
+                    src="/mock.jpg"
+                    width="100%"
+                />
+            </Link>
         </div>
     </>
     )
-}
-
-interface NewsData {
-}
-
-function getEvent() {
-    // 画像とURLを取得する
 }

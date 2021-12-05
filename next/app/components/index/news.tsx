@@ -8,13 +8,13 @@ export default function News() {
                 ニュース
             </div>
             <NewsTable />
-            <div className="text-center py-4">
+            {/* <div className="text-center py-4">
                 <button className="pastNews">
                     <Link href="/newslist">
                         過去のニュースはこちらから
                     </Link>
                 </button>
-            </div>
+            </div> */}
         </div>
     </>
     )
@@ -56,9 +56,9 @@ const NewsTable = () => {
                             {data.date}
                         </td>
                         <td>
-                            <Link href={data.url}>
+                            {/* <Link href={data.url}> */}
                                 {data.headline}
-                            </Link>
+                            {/* </Link> */}
                         </td>
                     </tr>
                 )}
