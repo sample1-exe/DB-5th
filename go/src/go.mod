@@ -1,4 +1,4 @@
-module github.com/sample1-exe/DB-5th
+module github.com/sample1-exe/DB-5th/go/src
 
 go 1.17
 
