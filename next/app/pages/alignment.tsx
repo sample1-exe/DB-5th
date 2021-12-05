@@ -1,7 +1,14 @@
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-export default function Activity() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const companyJson = await fetch("http://db5th_go:8080/select/company")
+      .then(res => res.json())
+  return { props: { companyJson } }
+}
+
+export default function Activity(jsonData) {
   const title: string = "連携協定 | AIスマート工学コース";
   return ( 
     <>
@@ -20,14 +27,9 @@ export default function Activity() {
             <div className="border-b-2 border-black text-3xl pb-4">
               企業との連携
             </div>
-            <CorporateAlignmentTable />
+            <CorporateAlignmentTable companyJson={jsonData.companyJson}/>
           </div>
-          <div className="p-8">
-            <div className="border-b-2 border-black text-3xl pb-4">
-              他校との連携
-            </div>
-            <SchoolAlignmentTable />
-          </div>
+
         </div>
       
         <Footer />
@@ -41,20 +43,12 @@ interface AlignmentData {
   date: string
 }
 
-const CorporateAlignmentTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
-
-  // モック
+const CorporateAlignmentTable = (companyJson) => {
   const newsDatas: Array<AlignmentData> = [];
-  for (let i = 0; i < 5; i++) {
+  for (const company of companyJson.companyJson) {
       const data: AlignmentData = {
-          name: "バカ株式会社" + i.toString(10),
-          date: "1111-11-11"
+          name: company.Company_name,
+          date: company.Company_date
       };
 
       newsDatas.push(data);
@@ -66,37 +60,7 @@ const CorporateAlignmentTable = () => {
               {newsDatas.map((data) => 
                   <tr key={data.name}>
                     <td>{data.name}</td>
-                  </tr>
-              )}
-          </tbody>
-      </table>
-  </>);
-}
-const SchoolAlignmentTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
-
-  // モック
-  const newsDatas: Array<AlignmentData> = [];
-  for (let i = 0; i < 5; i++) {
-      const data: AlignmentData = {
-          name: "役立たず高校" + i.toString(10),
-          date: "1111-11-11"
-      };
-
-      newsDatas.push(data);
-  }
-
-  return (<>
-      <table className="table-auto">
-          <tbody>
-              {newsDatas.map((data) => 
-                  <tr key={data.name}>
-                    <td>{data.name}</td>
+                    <td>{data.date}</td>
                   </tr>
               )}
           </tbody>
