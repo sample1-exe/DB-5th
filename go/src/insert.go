@@ -8,6 +8,53 @@ import (
 	"github.com/labstack/echo"
 )
 
+func POST_teacher(c echo.Context) error {
+	db := Connection()
+
+	teacher_name := c.FormValue("teacher_name")
+	teacher_sex_string := c.FormValue("teacher_sex")
+	teacher_sex, _ := strconv.Atoi(teacher_sex_string)
+	teacher := Teacher{
+		Teacher_name: teacher_name,
+		Teacher_sex:  teacher_sex,
+	}
+	db.Create(&teacher)
+
+	return c.String(http.StatusOK, "Write DB")
+}
+
+func POST_subject(c echo.Context) error {
+	db := Connection()
+
+	subject_name := c.FormValue("subject_name")
+	subject_explanation := c.FormValue("subject_explanation")
+	subject := Subject{
+		Subject_name:        subject_name,
+		Subject_explanation: subject_explanation,
+	}
+	db.Create(&subject)
+
+	return c.String(http.StatusOK, "Write DB")
+}
+
+func Post_link(c echo.Context) error {
+	db := Connection()
+
+	teacher_id_string := c.FormValue("teacher_id")
+	teacher_id, _ := strconv.Atoi(teacher_id_string)
+	subject_id_string := c.FormValue("subject_id")
+	subject_id, _ := strconv.Atoi(subject_id_string)
+
+	link := Link{
+		Teacher_id: teacher_id,
+		Subject_id: subject_id,
+	}
+	db.Create(&link)
+
+	return c.String(http.StatusOK, "Write DB")
+}
+
+/*
 func Post_link(c echo.Context) error {
 	db := Connection()
 
@@ -44,6 +91,7 @@ func Post_link(c echo.Context) error {
 
 	return c.String(http.StatusOK, "Write DB")
 }
+*/
 
 func Post_news(c echo.Context) error {
 	db := Connection()

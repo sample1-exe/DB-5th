@@ -6,6 +6,8 @@ import (
 
 func main() {
 	e := echo.New()
+	e.POST("/insert/teacher", POST_teacher)
+	e.POST("/insert/subject", POST_subject)
 	e.POST("/insert/link", Post_link)
 	e.POST("/insert/news", Post_news)
 	e.POST("/insert/company", Post_company)
