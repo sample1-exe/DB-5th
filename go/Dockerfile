@@ -1,3 +1,4 @@
 FROM golang:latest
 
-WORKDIR /go/src
+ENTRYPOINT [ "/go/source/DB-5th" ]
+WORKDIR /go/source
