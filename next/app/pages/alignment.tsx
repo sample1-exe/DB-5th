@@ -1,105 +1,61 @@
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-export default function Activity() {
-  const title: string = "連携協定 | AIスマート工学コース";
-  return ( 
-    <>
-      <div className="wrapper">
-        <Header 
-          title={title}
-        />
+export const getServerSideProps: GetServerSideProps = async () => {
+    const company = await fetch("http://db5th_go:8080/select/company")
+        .then(res => res.json())
+    return { props: { company } }
+}
 
-        <div className="grid grid-cols-1 p-8">
-          <div className="border-b-4 border-black text-4xl mb-16">
-            連携協定
-          </div>
-          本校AIスマート工学コースは以下の企業と連携協定を締結いたしました。
+export default function Activity(props) {
+    const title: string = "連携協定 | AIスマート工学コース";
+    return (<>
+        <div className="wrapper">
+            <Header title={title} />
+            <div className="grid grid-cols-1 p-8">
+                <div className="border-b-4 border-black text-4xl mb-16">
+                    連携協定
+                </div>
+                本校AIスマート工学コースは以下の企業と連携協定を締結いたしました。
 
-          <div className="p-8">
-            <div className="border-b-2 border-black text-3xl pb-4">
-              企業との連携
+                <div className="p-8">
+                    <div className="border-b-2 border-black text-3xl pb-4">
+                        企業との連携
+                    </div>
+                    <CorporateAlignmentTable company={props.company}/>
+                </div>
             </div>
-            <CorporateAlignmentTable />
-          </div>
-          <div className="p-8">
-            <div className="border-b-2 border-black text-3xl pb-4">
-              他校との連携
-            </div>
-            <SchoolAlignmentTable />
-          </div>
+            <Footer />
         </div>
-      
-        <Footer />
-      </div>
-    </>
-  )
+    </>)
 }
 
 interface AlignmentData {
-  name: string,
-  date: string
+    name: string,
+    date: string
 }
 
-const CorporateAlignmentTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
+const CorporateAlignmentTable = (props) => {
+    const newsDatas: Array<AlignmentData> = [];
+    for (const company of props.company) {
+        const data: AlignmentData = {
+            name: company.Company_name,
+            date: company.Company_date
+        };
+        newsDatas.push(data);
+    }
 
-  // モック
-  const newsDatas: Array<AlignmentData> = [];
-  for (let i = 0; i < 5; i++) {
-      const data: AlignmentData = {
-          name: "バカ株式会社" + i.toString(10),
-          date: "1111-11-11"
-      };
-
-      newsDatas.push(data);
-  }
-
-  return (<>
-      <table className="table-auto">
-          <tbody>
-              {newsDatas.map((data) => 
-                  <tr key={data.name}>
-                    <td>{data.name}</td>
-                  </tr>
-              )}
-          </tbody>
-      </table>
-  </>);
-}
-const SchoolAlignmentTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          ActivityData[]
-      }
-  */
-
-  // モック
-  const newsDatas: Array<AlignmentData> = [];
-  for (let i = 0; i < 5; i++) {
-      const data: AlignmentData = {
-          name: "役立たず高校" + i.toString(10),
-          date: "1111-11-11"
-      };
-
-      newsDatas.push(data);
-  }
-
-  return (<>
-      <table className="table-auto">
-          <tbody>
-              {newsDatas.map((data) => 
-                  <tr key={data.name}>
-                    <td>{data.name}</td>
-                  </tr>
-              )}
-          </tbody>
-      </table>
-  </>);
+    return (<>
+        <table className="table-auto">
+            <tbody>
+                {newsDatas.map((data) => 
+                    <tr key={data.name}>
+                        <td>{data.name}</td>
+                        <td>{data.date}</td>
+                    </tr>
+                )}
+            </tbody>
+        </table>
+    </>);
 }

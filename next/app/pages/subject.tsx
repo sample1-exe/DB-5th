@@ -1,69 +1,84 @@
+import Link from 'next/link'
+import { GetServerSideProps } from 'next'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Link from 'next/link'
+import { prependOnceListener } from 'process'
 
-export default function Activity() {
-  const title: string = "授業 | AIスマート工学コース";
-  return ( 
-    <>
-      <div className="wrapper">
-        <Header 
-          title={title}
-        />
+export const getServerSideProps: GetServerSideProps = async () => {
+    const subject = await fetch("http://db5th_go:8080/select/subject")
+        .then(res => res.json())
+    return { props: { subject } }
+}
 
-        <div className="grid grid-cols-1 p-8">
-          <div className="border-b-4 border-black text-4xl mb-16">
-            授業
-          </div>
-
-          <SubjectTable />
+export default function Activity(props) {
+    const title: string = "授業 | AIスマート工学コース";
+    return (<>
+        <div className="wrapper">
+            <Header title={title} />
+            <div className="grid grid-cols-1 p-8">
+                <div className="border-b-4 border-black text-4xl mb-16">
+                    授業
+                </div>
+                <SubjectTable subject={props.subject} />
+            </div>
+            <Footer />
         </div>
-      
-        <Footer />
-      </div>
-    </>
-  )
+    </>)
 }
 
 interface SubjectData {
-  subjectName: string,
-  teacher: string,
-  syllabusURL: string,
+    subjectName: string,
+    teacher: string,
+    syllabusURL: string,
 }
 
-const SubjectTable = () => {
-  /*
-      活動一覧を DB から取得するやつを誰かが書く
-      {
-          SubjectData[]
-      }
-  */
+const SubjectTable = (props) => {
+    const subjectDatas: Array<SubjectData> = [];
+    for (const subjectData of props.subject) {
+        const data: SubjectData = {
+            subjectName: subjectData.Subject_name,
+            teacher: "未定",
+            syllabusURL: ""
+        }
+        subjectDatas.push(data);
+    }
 
-  // モック
-  const subjectDatas: Array<SubjectData> = [];
-  for (let i = 0; i < 10; i++) {
-      const data: SubjectData = {
-        subjectName: "帝王学" + i.toString(10),
-        teacher: "天上人",
-        syllabusURL: "/subjec/syllabus/" + i.toString(10),
-      };
+    return (<>
+        <table className="table-auto">
+            <tbody>
+                <tr>
+                    <th className="border border-black">科目名</th>
+                    <th className="border border-black">教員</th>
+                    <th className="border border-black"></th>
+                </tr>
+                {subjectDatas.map((data) =>
+                    <tr key={data.subjectName} className="text-3xl">
+                        <td className="border border-black">{data.subjectName}</td>
+                        <td className="border border-black">{data.teacher}</td>
+                        <td className="border border-black">
+                        {/* <Link href={data.syllabusURL}>シラバス</Link> */}
+                        {SyllabusURL(data.syllabusURL)}
+                        </td>
+                    </tr>
+                )}
+            </tbody>
+        </table>
+    </>);
+}
 
-      subjectDatas.push(data);
-  }
-
-  return (<>
-      <table className="table-auto">
-          <tbody>
-              {subjectDatas.map((data) => 
-                  <tr key={data.subjectName} className="text-3xl">
-                    <td className="border border-black">{data.subjectName}</td>
-                    <td className="border border-black">{data.teacher}</td>
-                    <td className="border border-black fontColor">
-                      <Link href={data.syllabusURL}>シラバス</Link>
-                    </td>
-                  </tr>
-              )}
-          </tbody>
-      </table>
-  </>);
+function SyllabusURL(url) {
+    if (url === "") {
+        return (
+            <div>
+                シラバス
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="fontColor">
+                <Link href={url}>シラバス</Link>
+            </div>
+        )
+    }
 }
