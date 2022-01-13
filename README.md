@@ -19,7 +19,6 @@ $ ./run.sh
 ```
 2. ブラウザで `http://localhost` に接続する
 
-<<<<<<< HEAD
 ## 操作
 ### APIパラメータ
 
@@ -53,11 +52,3 @@ curl -F "company_name" localhost:8080/insert/continue_company
 進学先（学校）
 ```
 curl -F"school_name=aaa" localhost:8080/insert/continue_school
-=======
-## 終了方法
-
-1. 以下のコマンドを実行する
-```sh
-$ docker-compose down
->>>>>>> 9552e0da93c63c67cbb6bc3fb02f11edc475a7da
-```
