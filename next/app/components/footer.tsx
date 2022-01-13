@@ -1,9 +1,7 @@
 import Link from 'next/link'
 
-
 export default function Footer() {
-    return (
-        <>
+    return (<>
         <footer className="justify-center items-center footer flex space-x-8">
             <Link href="/guidance">
                 コース案内
@@ -24,6 +22,5 @@ export default function Footer() {
                 連携協定
             </Link>
         </footer>
-        </>
-    )
+    </>)
 }
