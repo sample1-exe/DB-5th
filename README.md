@@ -20,18 +20,22 @@ $ ./run.sh
 2. ブラウザで `http://localhost` に接続する
 
 ## 操作
-### APIパラメータ
-
-#### /select/hostlist [GET]
-HostListテーブルのすべての要素を取得
-
-#### /select/hoststatus/one/<HostList_id>[GET]
-idはint系
-HostListテーブルのIDを指定してHostStatusテーブルの最新一個のカラムを取得する
-
-#### /select/hoststatus/some/<HostList_id> [GET]
-HostListテーブルのIDを用いてHostStatusテーブルの最新n個のカラムを取得する
-
+### 入力のリスト
+/insert/teacher：教員の入力
+/insert/subject：科目の入力
+/insert/link：教員ID、科目IDの紐付けの入力
+/insert/news：ニュースの入力
+/insert/company：連携先の入力
+/insert/continue_company：就職先の入力
+/insert/continue_school：進学先の入力
+### 出力のリスト
+/select/teacher：教員の出力
+/select/subject：科目の出力
+/select/link：教員ID、科目IDの紐付けの出力
+/select/news：ニュースの出力
+/select/company：連携先の出力
+/select/continue_company：就職先の出力
+/select/continue_school：進学先の出力
 ### DBへの書き込み
 科目、教員（性別は0が男性、1が女性）
 ```
